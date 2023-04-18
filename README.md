@@ -50,11 +50,4 @@ The analogic complement color scheme includes colors that are adjacent to the ba
 - CSS
 - HTML
 
-## How to Install
-
-1. Clone the repository.
-2. Run `npm install` to install the necessary dependencies.
-3. Run `npm start` to start the app.
-4. Navigate to `http://localhost:3000` in your browser.
-
 Feel free to use and modify this app as you see fit.
