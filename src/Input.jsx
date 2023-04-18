@@ -37,7 +37,7 @@ function Input(){
     }
 
     const newState = colors.map(data => {
-        return data.hex.value
+        return data.hex
     })
 
     console.log(newState)
