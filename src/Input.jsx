@@ -1,4 +1,4 @@
-import {React, useState, useEffect }from "react";
+import {React, useState}from "react";
 import Colorbox from "./Colorbox";
 import "./styles/Input.css"
 
@@ -8,7 +8,8 @@ function Input(){
         hexInput: "",
         colorOption: ""
     })
-
+    
+    const [colors, setColors] = useState([])
     
     function handleChange(event){
         const {name, value} = event.target
@@ -26,9 +27,7 @@ function Input(){
         const mode = inputSelection.colorOption
         return `https://www.thecolorapi.com/scheme?hex=${hexColor}&mode=${mode}&count=5`
     }
-    
-    const [colors, setColors] = useState([])
-    
+        
     function handleClick(e){
         e.preventDefault()
         let url = createUrl()
@@ -37,7 +36,11 @@ function Input(){
             .then(data => setColors(data.colors))
     }
 
-    console.log(colors)
+    const newState = colors.map(data => {
+        return data.hex.value
+    })
+
+    console.log(newState)
 
     return(
         <div className="form-container">
@@ -55,7 +58,7 @@ function Input(){
                 </select>
                 <button onClick={handleClick} className="query-btn">Get color scheme</button>
             </form>
-            {colors.length > 0 ? <Colorbox colors={colors} /> : null}
+            {colors.length > 0 ? <Colorbox colors={newState} /> : null}
         </div>
     )
 }
