@@ -1,6 +1,5 @@
 import {React, useState}from "react";
 import Colorbox from "./Colorbox";
-import "./styles/Input.css"
 
 
 function Input(){
@@ -40,13 +39,17 @@ function Input(){
         return data.hex
     })
 
-    console.log(newState)
+    const cards = newState.map(item => {
+        return (
+            <Colorbox key={item.value} color={item} />
+        )
+    })
 
     return(
         <div className="form-container">
             <form className="form" onSubmit={handleClick}>
-                <input type="text" name="hexInput" value={inputSelection.hexInput} onChange={handleChange} placeholder="Enter value in hex.."/>
-                <select name="colorOption" id="color-options" value={inputSelection.colorOption} onChange={handleChange}>
+                <input className="form-item" type="text" name="hexInput" value={inputSelection.hexInput} onChange={handleChange} placeholder="Enter value in hex.."/>
+                <select className="form-item" name="colorOption" id="color-options" value={inputSelection.colorOption} onChange={handleChange}>
                     <option value="">--Select--</option>
                     <option value="monochrome">Monochrome</option>
                     <option value="monochrome-dark">Monochrome-dark</option>
@@ -56,9 +59,11 @@ function Input(){
                     <option value="analogic-complement">Analogic-complement</option>
                     <option value="triad">Triad</option>
                 </select>
-                <button onClick={handleClick} className="query-btn">Get color scheme</button>
+                <button onClick={handleClick} className="query-btn form-item">Get color scheme</button>
             </form>
-            {colors.length > 0 ? <Colorbox colors={newState} /> : null}
+            <div className="color-container">
+                {cards}
+            </div>
         </div>
     )
 }

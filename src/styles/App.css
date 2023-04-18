@@ -7,10 +7,12 @@
 #root {
   width: 100vw;
   height: 100vh;
+  background: #1F2937;
 }
 
 h1{
   text-align: center;
+  color: white;
 }
 
 .container{
@@ -42,6 +44,10 @@ input[type="text"]{
 #color-options{
   height: 30px;
   width: 10%;
+  background: white;
+  border: none;
+  padding: .3em;
+  cursor: pointer;
 }
 
 .query-btn{
@@ -53,38 +59,58 @@ input[type="text"]{
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
-  background: transparent;
+  background: white;
+  font-weight: bold;
+  transition: all 350ms ease;
+  -webkit-transition: all 350ms ease;
+  -moz-transition: all 350ms ease;
+  -ms-transition: all 350ms ease;
+  -o-transition: all 350ms ease;
+  cursor: pointer;
 }
 
-/* .color-container{
+.query-btn:hover{
+  background: rgba(255, 255, 255, 0.616);
+}
+
+.color-container{
   width: 100%;
-  height: 500px;
-  background: rgb(51, 35, 35);
+  height: 580px;
   display: flex;
-} */
+}
 
-/* .colors{
-  width: calc(100% / 5);
+.colors{
+  width: 20%;
   height: inherit;
-  background: green;
-} */
-
-/* #color1{
-  background: #933939;
+  display: grid;
+  place-content: center;
+  font-weight: bold;
+  cursor: pointer;
 }
 
-#color2{
-  background: #24a17b;
-}
 
-#color3{
-  background: #3c2193;
-}
+@media screen and (max-width: 800px){
+  .form{
+    flex-direction: column;
+    height: fit-content;
+  }
 
-#color4{
-  background: #08834e;
-}
+  .form-item{
+    margin: 1em 0;
+  }
 
-#color5{
-  background: #288e9f;
-} */
+  #color-options,
+  input[type="text"],
+  .query-btn{
+    width: 50%;
+  }
+
+  .color-container{
+    flex-direction: column;
+    margin-top: 1em;
+  }
+
+  .colors{
+    width: 100%;
+  }
+}
