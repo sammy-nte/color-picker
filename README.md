@@ -50,4 +50,7 @@ The analogic complement color scheme includes colors that are adjacent to the ba
 - CSS
 - HTML
 
+## View directly from here
+[Open](https://colorch.netlify.app/)
+
 Feel free to use and modify this app as you see fit.
